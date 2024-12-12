@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Banque Oddo BHF</title>
+    <style>
+        body { font-family: Arial, sans-serif; background-color: #f4f4f4; }
+        .container { max-width: 600px; margin: auto; padding: 20px; background: white; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+        h1 { text-align: center; }
+        label { display: block; margin: 10px 0 5px; }
+        input { width: 100%; padding: 10px; margin-bottom: 20px; }
+        button { width: 100%; padding: 10px; background: #007bff; color: white; border: none; border-radius: 5px; }
+        .account-info { display: none; }
+        .transaction { margin: 5px 0; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Connexion à votre compte</h1>
+        <form id="loginForm">
+            <label for="email">Identifiant</label>
+            <input type="email" id="email" required>
+            <label for="password">Mot de passe</label>
+            <input type="password" id="password" required>
+            <button type="submit">Se connecter</button>
+        </form>
+
+        <div class="account-info" id="accountInfo">
+            <h2>Informations du compte</h2>
+            <p><strong>Nom du propriétaire :</strong> David Frescura</p>
+            <p><strong>Profession :</strong> Concessionnaire automobile</p>
+            <p><strong>Date de création du compte :</strong> 2016</p>
+            <p><strong>Solde gelé :</strong> 160.000€</p>
+            <p><strong>Solde disponible :</strong> 25.000€ (Restriction : Limite mensuelle de retrait atteinte. Disponible le 15 janvier)</p>
+            <h3>Historique des transactions</h3>
+            <div class="transaction">Virement : 500€ le 01/12/2024</div>
+            <div class="transaction">Réception : 2.000€ le 05/12/2024</div>
+            <div class="transaction">Retrait : 200€ le 10/12/2024</div>
+            <div class="transaction">Virement : 1.500€ le 12/12/2024</div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('loginForm').onsubmit = function(e) {
+            e.preventDefault();
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            if (email === 'davidfrescura7@gmail.com' && password === '190224A') {
+                document.getElementById('accountInfo').style.display = 'block';
+                alert('Connexion réussie!');
+            } else {
+                alert('Identifiant ou mot de passe incorrect!');
+            }
+        };
+    </script>
+</body>
+</html>
